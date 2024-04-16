@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expandable Text Boxes</title>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      overflow-y: auto;
+      transition: filter 0.3s ease; /* Smooth transition for blur effect */
+    }
+
+    .container {
+      position: relative;
+      bottom: 4cm;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+      
+    }
+.container img{
+    position: relative;
+    left: 18cm;
+    width: 7cm;
+}
+.heading{
+    
+    position: relative;
+    bottom: 9cm;
+    left: 100px;
+    font-size: 30px;
+    width: 10cm;
+}
+    .text-box {
+      padding: 10px;
+      margin-bottom: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .text-box:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .green-text {
+        color: #4d9120;
+}
+    .modal-content {
+      background-color: #ffffff;
+      padding: 20px;
+      box-shadow: 0 4px 8px #e6daa9;
+      border-radius: 8px;
+      max-width: 80%;
+      overflow-y: auto;
+    }
+</style>
+</head>
+<body>
+  <!-- Container for header content -->
+  <div id="headerContainer"></div>
+  <div class="container">
+    <img src="schemepage.jpg" alt="Background Image">
+    <div class="heading">
+      <h1><span class="green-text">Schemes</span> & Insurances</h1>
+    </div>
+  </div>
+  
+    <div class="text-box" id="text-box-1">
+      This is a text box with a short summary. Click to expand for more content.
+    </div>
+    <div class="text-box" id="text-box-2">
+      Another text box with a brief preview. Click to learn more.
+    </div>
+    <div class="text-box" id="text-box-3">
+      This is another text box. Click to expand and reveal additional details.
+    </div>
+  </div>
+
+  <!-- Modal Overlay -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content" id="modal-content">
+      <!-- Content of the active text box will be loaded here -->
+    </div>
+  </div>
+
+  <script>
+    // Fetch and insert header content
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('headerContainer').innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Error fetching header:', error);
+        });
+
+    // Event listener to handle text-box click and modal display
+    const textBoxes = document.querySelectorAll('.text-box');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalContent = document.getElementById('modal-content');
+
+    textBoxes.forEach(textBox => {
+      textBox.addEventListener('click', () => {
+        const content = textBox.innerHTML;
+        modalContent.innerHTML = content;
+        modalOverlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Disable scrolling on the body
+      });
+    });
+
+    // Close modal when clicking outside of modal content
+    modalOverlay.addEventListener('click', (event) => {
+      if (event.target === modalOverlay) {
+        modalOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enable scrolling on the body
+      }
+    });
+  </script>
+</body>
+</html>
