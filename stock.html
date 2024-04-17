@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selectable Option and Table</title>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      overflow-y: auto;
+    }
+    .options {
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    .select-option {
+      margin-right: 10px;
+    }
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      border: black solid;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+    .container{
+        position: relative;
+      bottom: 4cm;
+      max-width: 1200px;
+      max-height: 12cm;
+      margin: 0 auto;
+      padding: 20px;
+      border: black solid;
+    
+    }
+    .container img{
+        position: relative;
+      left: 18cm;
+      width: 7cm;
+    }
+    .green-text {
+      color: #4d9120;
+    }
+    .heading {
+      position: relative;
+      bottom: 11cm;
+      left: 150px;
+      font-size: 30px;
+      width: 10cm;
+    }
+
+</style>
+</head>
+<body>
+
+<!-- Container for header content -->
+<div id="headerContainer"></div>
+<div class="container">
+    <img src="stock_page.jpg" alt="Background Image">
+    <div class="heading">
+        <h1><span class="green-text">Stock</span> & Prices</h1>
+      </div>
+</div>
+<div class="options">
+  <span class="select-option">Select Location:</span>
+  <select name="option">
+    <option value="option1">Kalady</option>
+    <option value="option2">Okkal</option>
+    <option value="option3">Sreemoolanagaram</option>
+    <option value="option4">Angamaly</option>
+  </select>
+</div>
+
+<table>
+  <tr>
+    <th>Serial No.</th>
+    <th>Product</th>
+    <th>Stock</th>
+    <th>Last Updated</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Product Name 1</td>
+    <td>10</td>
+    <td>2024-04-12</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Product Name 2</td>
+    <td>5</td>
+    <td>2024-04-10</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  
+</table>
+
+<!-- JavaScript to load the header -->
+<script>
+  // Fetch and insert header content
+  fetch('header.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('headerContainer').innerHTML = data;
+    })
+    .catch(error => {
+      console.error('Error fetching header:', error);
+    });
+</script>
+
+</body>
+</html>
