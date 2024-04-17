@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vegetable Prices</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  .vegetable-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Adjust the gap between vegetables */
+    border: black solid;
+    width: 100%;
+  }
+  .vegetable-card {
+    text-align: center;
+    width: calc(20% - 40px); /* 20% width minus margins */
+    margin: 10px;
+    padding: 10px;
+    border: black solid;
+  }
+  .vegetable-image {
+    max-height: 100px; /* Adjust the image height */
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Container for the header content -->
+<div id="headerContainer"></div>
+
+<h1 style="text-align: center;border: black solid;">Vegetable Prices</h1>
+
+<div class="vegetable-container">
+  <!-- Vegetable 1 -->
+  <div class="vegetable-card">
+    <img src="vegetable1.jpg" alt="Vegetable 1" class="vegetable-image">
+    <p style="font-weight: bold;">Tomato</p>
+    <p>Price: $2.00 per kg</p>
+  </div>
+
+  <!-- Vegetable 2 -->
+  <div class="vegetable-card">
+    <img src="vegetable2.jpg" alt="Vegetable 2" class="vegetable-image">
+    <p style="font-weight: bold;">Cucumber</p>
+    <p>Price: $1.50 per kg</p>
+  </div>
+
+  <!-- Vegetable 3 -->
+  <div class="vegetable-card">
+    <img src="vegetable3.jpg" alt="Vegetable 3" class="vegetable-image">
+    <p style="font-weight: bold;">Carrot</p>
+    <p>Price: $1.80 per kg</p>
+  </div>
+
+  <!-- Vegetable 4 -->
+  <div class="vegetable-card">
+    <img src="vegetable4.jpg" alt="Vegetable 4" class="vegetable-image">
+    <p style="font-weight: bold;">Broccoli</p>
+    <p>Price: $2.50 per kg</p>
+  </div>
+
+  <!-- Vegetable 5 -->
+  <div class="vegetable-card">
+    <img src="vegetable5.jpg" alt="Vegetable 5" class="vegetable-image">
+    <p style="font-weight: bold;">Spinach</p>
+    <p>Price: $1.20 per kg</p>
+  </div>
+  <div class="vegetable-card">
+    <img src="cucumber.jpg" alt="Vegetable 2" class="vegetable-image">
+    <p style="font-weight: bold;">Cucumber</p>
+    <p>Price: $1.50 per kg</p>
+  </div>
+  <div class="vegetable-card">
+    <img src="vegetable2.jpg" alt="Vegetable 2" class="vegetable-image">
+    <p style="font-weight: bold;">Cucumber</p>
+    <p>Price: $1.50 per kg</p>
+  </div>
+  <div class="vegetable-card">
+    <img src="vegetable2.jpg" alt="Vegetable 2" class="vegetable-image">
+    <p style="font-weight: bold;">Cucumber</p>
+    <p>Price: $1.50 per kg</p>
+  </div>
+  <div class="vegetable-card">
+    <img src="vegetable2.jpg" alt="Vegetable 2" class="vegetable-image">
+    <p style="font-weight: bold;">Cucumber</p>
+    <p>Price: $1.50 per kg</p>
+  </div>
+</div>
+
+<!-- JavaScript to load the header -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    fetch('header.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('headerContainer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error fetching header:', error);
+      });
+  });
+</script>
+
+</body>
+</html>
