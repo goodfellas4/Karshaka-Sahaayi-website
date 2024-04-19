@@ -1,112 +1,122 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Navbar with Logo</title>
-<style>
-    /* CSS for Navbar */
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background-image: url();
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar with Logo</title>
+    <style>
+        /* CSS for Navbar */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url();
+        }
 
+        .abstract {
+            position: relative;
+            left: 150px;
+            bottom: 400px;
+            font-size: 45px;
+            color: rgb(0, 0, 0);
+            margin-top: 20px;
+            font-family: sans-serif;
+            width: 20cm;
+        }
 
-    .abstract {
-        position: relative;
-        left: 150px;
-        bottom: 400px;
-        font-size: 45px;
-        color: rgb(0, 0, 0);
-        margin-top: 20px;
-        font-family: sans-serif;
-        width: 20cm;
-    }
+        .green-text {
+            color: #4d9120;
+        }
 
-    .green-text {
-        color: #4d9120;
-    }
+        .abstract2 {
+            position: relative;
+            left: 155px;
+            bottom: 440px;
+            font-size: 20px;
+            color: black;
+            line-height: 1.5;
+            margin-top: 20px;
+            text-align: justify;
+            width: 50%;
+        }
 
-    .abstract2 {
-        position: relative;
-        left: 155px;
-        bottom: 440px;
-        font-size: 20px;
-        color: black;
-        line-height: 1.5;
-        margin-top: 20px;
-        text-align: justify;
-        width: 50%;
-    }
+        .button-container {
+            position: relative;
+            bottom: 3cm;
+            left: 5px;
+            margin-top: 30px;
+            text-align: center;
+            width: 95%;
+        }
 
-    .button-container {
-        position: relative;
-        bottom: 3cm;
-        left: 5px;
-        margin-top: 30px;
-        text-align: center;
-        width: 95%;
-    }
+        .butn1, .butn2, .butn3 {
+            position: re;
+            left: 15px;
+            width: 250px;
+            height: 300px;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 40px;
+            display: inline-block;
+            color: white;
+            cursor: pointer;
+            margin: 50px;
+            border-radius: 5px;
+            border-color: #ffffff;
+        }
 
-    .butn1, .butn2, .butn3 {
-        position: re;
-        left: 15px;
-        width: 250px;
-        height: 300px;
-        padding: 15px;
-        font-weight: bold;
-        font-size: 40px;
-        display: inline-block;
-        color: white;
-        cursor: pointer;
-        margin: 50px;
-        border-radius: 5px;
-        border-color: #ffffff;
-    }
+        .butn1 {
+            background-image: url(https://github.com/goodfellas4/Karshaka-Sahaayi-website/blob/main/fertilzer_image.jpg?raw=true);
+            background-size: cover;
+            background-position: center;
+        }
 
-    .butn1 {
-        background-image: url(https://github.com/goodfellas4/Karshaka-Sahaayi-website/blob/main/fertilzer_image.jpg?raw=true);
-        background-size: cover;
-        background-position: center;
-    }
+        .butn2 {
+            background-image: url(https://github.com/goodfellas4/Karshaka-Sahaayi-website/blob/main/marketprice_image.jpg?raw=true);
+            background-size: cover;
+            background-position: center;
+        }
 
-    .butn2 {
-        background-image: url(https://github.com/goodfellas4/Karshaka-Sahaayi-website/blob/main/marketprice_image.jpg?raw=true);
-        background-size: cover;
-        background-position: center;
-    }
+        .butn3 {
+            background-image: url(https://github.com/goodfellas4/Karshaka-Sahaayi-website/blob/main/schemes_image.jpg?raw=true);
+            background-size: cover;
+            background-position: center;
+        }
 
-    .butn3 {
-        background-image: url(https://github.com/goodfellas4/Karshaka-Sahaayi-website/blob/main/schemes_image.jpg?raw=true);
-        background-size: cover;
-        background-position: center;
-    }
+        .content {
+            padding: 20px;
+            overflow-y: auto;
+            width: 50%;
+        }
 
-    .content {
-        padding: 20px;
-        overflow-y: auto;
-        width: 50%;
-    }
+        .container {
+            position: relative;
+            left: 60px;
+            bottom: 90px;
+            width: 1245px;
+            height: 14cm;
+        }
 
-    .container {
-        position: relative;
-        left: 60px;
-        bottom: 90px;
-        width: 1245px;
-        height: 14cm;
-        
-    }
+        .container img {
+            position: relative;
+            left: 18cm;
+            max-width: 100%;
+            max-height: 80%;
+        }
 
-    .container img {
-        position: relative;
-        left: 18cm;
-        max-width: 100%;
-        max-height: 80%;
-    }
-</style>
+        /* CSS for Footer */
+        footer {
+            background-color: #4d9120;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3cm;
+        }
+    </style>
 </head>
 <body>
 
@@ -131,7 +141,10 @@
     <button class="butn3">SCHEMES &<br>POLICIES</button>
 </div>
 
-
+<!-- Footer section -->
+<footer>
+    <p>&copy; 2024 My Webpage. All rights reserved.</p>
+</footer>
 
 <!-- JavaScript to load the header -->
 <script>
