@@ -4,18 +4,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vegetable Prices</title>
+<title>Market Insights</title>
 <style>
   body {
     font-family: Arial, sans-serif;
     padding: 20px;
   }
+     .container {
+      position: relative;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .container img {
+      position: relative;
+      left: 18cm;
+      width: 7cm;
+    }
+    .green-text {
+      color: #4d9120;
+      }
   .vegetable-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px; /* Adjust the gap between vegetables */
-    border: black solid;
+    
     width: 100%;
   }
   .vegetable-card {
@@ -46,8 +61,12 @@
 
 <!-- Container for the header content -->
 <div id="headerContainer"></div>
-
-<h1 style="text-align: center;border: black solid;">Vegetable Prices</h1>
+<div class="container">
+    <img src="https://github.com/goodfellas4/Karshaka-Sahaayi-website/blob/main/All%20images/scheme_page.jpg?raw=true" alt="Background Image">
+    <div class="heading">
+      <h1><span class="green-text">Market</span>   Insights</h1>
+    </div>
+<h1 style="text-align: center;">Vegetable Prices</h1>
 
 <div class="vegetable-container">
   <!-- Vegetable 1 -->
