@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tables with Buttons</title>
+<title>Tables with Buttons and Option Selection</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -29,14 +29,27 @@
     border: none;
     border-radius: 4px;
   }
+  select {
+    padding: 6px 12px;
+    border-radius: 4px;
+  }
 </style>
 </head>
 <body>
-<h1>Admin Page</h1>
-<!-- First Section -->
+<h1>Admin page</h1>
+
+<!-- Option Selection Box -->
+<select id="optionSelect">
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+  <option value="option3">Option 3</option>
+  <option value="option4">Option 4</option>
+</select>
+
+<!-- First Table Section -->
 <section>
-  <h2>First Table (5 columns, 35 rows)</h2>
-  <table>
+  <h2>Stock</h2>
+  <table id="table1">
     <thead>
       <tr>
         <th>Column 1</th>
@@ -44,77 +57,61 @@
         <th>Column 3</th>
         <th>Column 4</th>
         <th>Column 5</th>
-        <th>Update</th> <!-- New column for button -->
+        <th>Update</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- Generate 35 rows -->
-      <!-- Example of generating rows -->
-      <!-- Adjust the content of <td> elements as needed -->
-      <!-- Each row has a button -->
-      <!-- Replace the content inside <td> with your actual data -->
-      <!-- Add a button to each row -->
-      <!-- Adjust button text and functionality as needed -->
+    <tbody id="table1Body">
+      <!-- Rows will be dynamically generated here -->
     </tbody>
   </table>
 </section>
 
-<!-- Second Section -->
+<!-- Second Table Section -->
 <section>
-  <h2>Second Table (3 columns, 45 rows)</h2>
-  <table>
+  <h2>market table</h2>
+  <table id="table2">
     <thead>
       <tr>
         <th>Column A</th>
         <th>Column B</th>
         <th>Column C</th>
-        <th>Update</th> <!-- New column for button -->
+        <th>Update</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- Generate 45 rows -->
-      <!-- Example of generating rows -->
-      <!-- Adjust the content of <td> elements as needed -->
-      <!-- Each row has a button -->
-      <!-- Replace the content inside <td> with your actual data -->
-      <!-- Add a button to each row -->
-      <!-- Adjust button text and functionality as needed -->
+    <tbody id="table2Body">
+      <!-- Rows will be dynamically generated here -->
     </tbody>
   </table>
 </section>
 
-<!-- Third Section -->
+<!-- Third Table Section -->
 <section>
-  <h2>Third Table (2 columns, 25 rows)</h2>
-  <table>
+  <h2>scheme table</h2>
+  <table id="table3">
     <thead>
       <tr>
         <th>Column X</th>
         <th>Column Y</th>
-        <th>Update</th> <!-- New column for button -->
+        <th>Column Z</th>
+        <th>Update</th>
       </tr>
     </thead>
-    <tbody>
-      <!-- Generate 25 rows -->
-      <!-- Example of generating rows -->
-      <!-- Adjust the content of <td> elements as needed -->
-      <!-- Each row has a button -->
-      <!-- Replace the content inside <td> with your actual data -->
-      <!-- Add a button to each row -->
-      <!-- Adjust button text and functionality as needed -->
+    <tbody id="table3Body">
+      <!-- Rows will be dynamically generated here -->
     </tbody>
   </table>
 </section>
 
+<!-- JavaScript to handle button clicks and table generation -->
 <script>
-  // Function to handle button click (example)
+  // Function to handle button click
   function handleButtonClick(rowData) {
     alert(`Button clicked for row: ${rowData}`);
     // You can perform additional actions here based on the row data
   }
 
   // Generate rows for the first table
-  const table1Body = document.querySelector('section:nth-of-type(1) tbody');
+  const table1Body = document.getElementById('table1Body');
   for (let i = 1; i <= 35; i++) {
     const row = document.createElement('tr');
     row.innerHTML = `
@@ -123,35 +120,43 @@
       <td>Column 3 Data ${i}</td>
       <td>Column 4 Data ${i}</td>
       <td>Column 5 Data ${i}</td>
-      <td><button onclick="handleButtonClick('Row ${i}')">Update</button></td>
+      <td><button onclick="handleButtonClick('Table 1, Row ${i}')">Update</button></td>
     `;
     table1Body.appendChild(row);
   }
 
   // Generate rows for the second table
-  const table2Body = document.querySelector('section:nth-of-type(2) tbody');
+  const table2Body = document.getElementById('table2Body');
   for (let i = 1; i <= 45; i++) {
     const row = document.createElement('tr');
     row.innerHTML = `
       <td>Column A Data ${i}</td>
       <td>Column B Data ${i}</td>
       <td>Column C Data ${i}</td>
-      <td><button onclick="handleButtonClick('Row ${i}')">Update</button></td>
+      <td><button onclick="handleButtonClick('Table 2, Row ${i}')">Update</button></td>
     `;
     table2Body.appendChild(row);
   }
 
   // Generate rows for the third table
-  const table3Body = document.querySelector('section:nth-of-type(3) tbody');
+  const table3Body = document.getElementById('table3Body');
   for (let i = 1; i <= 25; i++) {
     const row = document.createElement('tr');
     row.innerHTML = `
       <td>Column X Data ${i}</td>
       <td>Column Y Data ${i}</td>
-      <td><button onclick="handleButtonClick('Row ${i}')">Update</button></td>
+      <td>Column Z Data ${i}</td>
+      <td><button onclick="handleButtonClick('Table 3, Row ${i}')">Update</button></td>
     `;
     table3Body.appendChild(row);
   }
+
+  // Handle option selection
+  document.getElementById('optionSelect').addEventListener('change', function() {
+    const selectedOption = this.value;
+    alert(`Selected option: ${selectedOption}`);
+    // You can perform actions based on the selected option here
+  });
 </script>
 
 </body>
