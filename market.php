@@ -64,13 +64,13 @@
 <div class="container">
     <?php
 // Database credentials
-$hostname = 'sql311.infinityfree.com';
-$username = 'if0_36395475';
-$password = 'ks142003';
-$database = 'if0_36395475_karshaka_sahaayi';
+$hostname = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'demo';
 
 // Create connection
-$conn = new mysqli($sql311.infinityfree.com, $if0_36395475, $ks142003, $if0_36395475_karshaka_sahaayi);
+$conn = new mysqli($localhost, $root, '', $demo);
 
 // Check connection
 if ($conn->connect_error) {
