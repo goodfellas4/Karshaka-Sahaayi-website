@@ -62,6 +62,12 @@
 <!-- Container for the header content -->
 <div id="headerContainer"></div>
 <div class="container">
+  <img src="https://github.com/goodfellas4/Karshaka-Sahaayi-website/blob/main/All%20images/scheme_page.jpg?raw=true" alt="Background Image">
+    <div class="heading">
+      <h1><span class="green-text">Market</span>   Insights</h1>
+    </div>
+    </div>
+<h1 style="text-align: center;">Vegetable Prices</h1>
     <?php
 // Database credentials
 $hostname = 'localhost';
