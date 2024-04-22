@@ -167,7 +167,8 @@ $result = $conn->query($sql);
 </table>
 
 <footer>
-    <p>&copy; 2024 My Webpage. All rights reserved.</p>
+    <p>&copy; 2024 Karshaka Sahaayi. All rights reserved.</p>
+    <p>E-Mail:karshakasahaayi@gmail.com</p>
 </footer>
 <script>
 document.getElementById('optionSelect').addEventListener('change', function() {
