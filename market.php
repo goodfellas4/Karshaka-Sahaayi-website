@@ -70,13 +70,13 @@
 <h1 style="text-align: center;">Vegetable Prices</h1>
     <?php
 // Database credentials
-$hostname = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'demo';
+$hostname = 'sql311.infinityfree.com';
+$username = 'if0_36395475';
+$password = 'ks142003';
+$database = 'if0_36395475_karshaka_sahaayi';
 
 // Create connection
-$conn = new mysqli($localhost, $root, '', $demo);
+$conn = new mysqli($hostname, $username, $password, $database);
 
 // Check connection
 if ($conn->connect_error) {
@@ -87,7 +87,7 @@ if ($conn->connect_error) {
 // Query to retrieve vegetable prices
 $sql = "SELECT items, price FROM vegetables";
 $result = $conn->query($sql);
-
+echo '<div class="vegetable-container">';
 if ($result->num_rows > 0) {
     // Output data of each row
     while ($row = $result->fetch_assoc()) {
@@ -97,15 +97,17 @@ if ($result->num_rows > 0) {
 
         // Output HTML for each vegetable card with respective price
         echo '<div class="vegetable-card">';
-        echo '<img src="https://github.com/goodfellas4/Karshaka-Sahaayi-website/blob/main/image/' . strtolower($items) . '.jpg" alt="' . $items . '" class="vegetable-image">';
+        echo '<img src="https://github.com/goodfellas4/Karshaka-Sahaayi-website/blob/main/image/'. strtolower($items) . '.jpg?raw=true" alt="' . $items . '" class="vegetable-image">';
         echo '<p style="font-weight: bold;">' . $items . '</p>';
         echo '<p>Price: ₹' . $price . ' per kg</p>';
         echo '</div>';
     }
-} else {
-    echo "0 results";
 }
 
+else {
+    echo "0 results";
+}
+echo '</div>';
 // Close connection
 $conn->close();
 ?>
@@ -114,7 +116,8 @@ $conn->close();
   </div>
 </div>
 <footer>
-    <p>&copy; 2024 My Webpage. All rights reserved.</p>
+    <p>&copy; 2024 Karshaka Sahaayi. All rights reserved.</p>
+    <p>E-Mail:karshakasahaayi@gmail.com</p>
 </footer>
 <!-- JavaScript to load the header -->
 <script>
