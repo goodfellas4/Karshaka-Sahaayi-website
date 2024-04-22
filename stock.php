@@ -9,14 +9,24 @@
       font-family: Arial, sans-serif;
       margin: 0;
       overflow-y: auto;
+      overflow-x: hidden;
     }
     .options {
       display: flex;
       justify-content: center;
       padding: 10px 0;
+      width: 8cm;
+      height: 1cm;
+      border: black solid;
+      position: relative;
+      left: 16cm;
+    }
+    .option{
+        font-size: 18px;
     }
     .select-option {
       margin-right: 10px;
+      font-size: 20px;
     }
     table {
       margin: 20px auto;
@@ -41,6 +51,7 @@
       position: relative;
       left: 18cm;
       width: 7cm;
+      
     }
     .green-text {
       color: #4d9120;
@@ -80,12 +91,15 @@
 
 <div class="options">
     <span class="select-option">Select Location:</span>
+    <div class="option">
+    
     <select name="option" id="optionSelect">
         <option value="option1">Kalady</option>
         <option value="option2">Okkal</option>
         <option value="option3">Sreemoolanagaram</option>
         <option value="option4">Angamaly</option>
     </select>
+</div>
 </div>
 
 <table>
@@ -111,7 +125,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$selectedOption = $_GET['option'];
+$selectedOption = $_GET['option'] ?? 'option1';
 
 $sql = "";
 
@@ -167,7 +181,9 @@ document.getElementById('optionSelect').addEventListener('change', function() {
 
     xhr.onload = function() {
         if (xhr.status == 200) {
-            document.getElementById('data-table').innerHTML = xhr.responseText;
+            // Replace the content of the table body with fetched data
+            var tableBody = document.querySelector('table tbody');
+            tableBody.innerHTML = xhr.responseText;
         } else {
             console.error('Request failed. Status:', xhr.status);
         }
@@ -175,6 +191,7 @@ document.getElementById('optionSelect').addEventListener('change', function() {
 
     xhr.send();
 });
+
 </script>
 
 </script>
