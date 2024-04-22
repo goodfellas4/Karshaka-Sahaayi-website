@@ -22,10 +22,12 @@
       margin: 20px auto;
       border-collapse: collapse;
       border: black solid;
+      height: 26cm;
+      width: 20cm;
     }
     th, td {
       padding: 10px;
-      border: 1px solid #ddd;
+      border: 1px solid #dd;
     }
     .container {
       position: relative;
@@ -95,6 +97,7 @@
         <th>Last Updated</th>
     </tr>
     <?php
+    
     $servername = 'localhost';
 $username = 'root';
 $password = '';
@@ -155,11 +158,13 @@ $result = $conn->query($sql);
 <script>
 document.getElementById('optionSelect').addEventListener('change', function() {
     var selectedOption = this.value;
-    
+
     // Make AJAX request to fetch data based on selected option
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'fetch_data.php?option=' + selectedOption, true);
-    
+
+    // Define the URL with the 'option' parameter
+    xhr.open('GET', 'fetch_data.php?option=' + encodeURIComponent(selectedOption), true);
+
     xhr.onload = function() {
         if (xhr.status == 200) {
             document.getElementById('data-table').innerHTML = xhr.responseText;
@@ -167,7 +172,7 @@ document.getElementById('optionSelect').addEventListener('change', function() {
             console.error('Request failed. Status:', xhr.status);
         }
     };
-    
+
     xhr.send();
 });
 </script>
