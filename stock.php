@@ -78,7 +78,7 @@
 
 <div class="options">
     <span class="select-option">Select Location:</span>
-    <select name="option">
+    <select name="option" id="optionSelect">
         <option value="option1">Kalady</option>
         <option value="option2">Okkal</option>
         <option value="option3">Sreemoolanagaram</option>
@@ -170,6 +170,8 @@ document.getElementById('optionSelect').addEventListener('change', function() {
     
     xhr.send();
 });
+</script>
+
 </script>
 </body>
 </html>
