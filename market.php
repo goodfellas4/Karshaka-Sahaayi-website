@@ -9,18 +9,27 @@
   body {
     font-family: Arial, sans-serif;
     padding: 20px;
+    overflow-x: hidden;
   }
      .container {
       position: relative;
       max-width: 1400px;
       margin: 0 auto;
       padding: 20px;
+      
     }
 
     .container img {
       position: relative;
       left: 18cm;
       width: 7cm;
+    }
+    .heading{
+      position: relative;
+      left: 4cm;
+      bottom: 5cm;
+      
+      font-size: 30px;
     }
     .green-text {
       color: #4d9120;
@@ -70,10 +79,10 @@
 <h1 style="text-align: center;">Vegetable Prices</h1>
     <?php
 // Database credentials
-$hostname = 'sql311.infinityfree.com';
-$username = 'if0_36395475';
-$password = 'ks142003';
-$database = 'if0_36395475_karshaka_sahaayi';
+$hostname = 'localhost';
+$username = 'root';
+$password = '';
+$database = 'demo';
 
 // Create connection
 $conn = new mysqli($hostname, $username, $password, $database);
