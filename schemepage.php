@@ -1,4 +1,3 @@
-
 <?php
 $servername = "sql311.infinityfree.com";
 $username = "if0_36395475";
@@ -14,14 +13,14 @@ if ($conn->connect_error) {
 }
 
 // Fetch data from the database
-$sql = "SELECT * FROM insurance_scheme";
+$sql = "SELECT scheme_name, content FROM insurance_scheme";
 $result = $conn->query($sql);
 
 $data = array();
 if ($result->num_rows > 0) {
     // Output data of each row
     while ($row = $result->fetch_assoc()) {
-        $data[] = $row['content']; // Assuming 'content' holds the text for each box
+        $data[] = array('name' => $row['name'], 'content' => $row['content']);
     }
 }
 
@@ -134,7 +133,7 @@ $conn->close();
         <?php
         // Generate text boxes using fetched data
         for ($i = 0; $i < count($data); $i++) {
-            echo '<div class="text-box">' . $data[$i] . '</div>';
+            echo '<div class="text-box" data-full-content="' . htmlspecialchars($data[$i]['content']) . '">' . htmlspecialchars($data[$i]['name']) . '</div>';
         }
         ?>
         
@@ -164,7 +163,7 @@ $conn->close();
 
     textBoxes.forEach(textBox => {
       textBox.addEventListener('click', () => {
-        const content = textBox.innerHTML;
+        const content = textBox.getAttribute('data-full-content');
         document.getElementById('modal-content').innerHTML = content;
         modalOverlay.style.display = 'flex';
         document.body.style.overflow = 'hidden'; // Disable scrolling on the body
