@@ -75,12 +75,12 @@
 </head>
 <body>
 
-<div id="headerContainer">
-    <div class="container">
-        <img src="https://github.com/goodfellas4/Karshaka-Sahaayi-website/blob/main/All%20images/stock%20and%20prices.jpg?raw=true" alt="Background Image">
-        <div class="heading">
-            <h1><span class="green-text">Stock</span> & Prices</h1>
-        </div>
+<div id="headerContainer"></div>
+
+<div class="container">
+    <img src="https://github.com/goodfellas4/Karshaka-Sahaayi-website/blob/main/All%20images/stock%20and%20prices.jpg?raw=true" alt="Background Image">
+    <div class="heading">
+        <h1><span class="green-text">Stock</span> & Prices</h1>
     </div>
 </div>
 
@@ -169,28 +169,44 @@
 </footer>
 
 <script>
-document.getElementById('optionSelect').addEventListener('change', function() {
-    var selectedOption = this.value;
-
-    // Make AJAX request to fetch data based on selected option
-    var xhr = new XMLHttpRequest();
-
-    // Define the URL with the 'option' parameter
-    xhr.open('GET', '?option=' + encodeURIComponent(selectedOption), true);
-
-    xhr.onload = function() {
-        if (xhr.status == 200) {
-            // Parse the HTML response and update the table body
-            var parser = new DOMParser();
-            var doc = parser.parseFromString(xhr.responseText, 'text/html');
-            var newTableBody = doc.querySelector('#tableBody').innerHTML;
-            document.querySelector('#tableBody').innerHTML = newTableBody;
-        } else {
-            console.error('Request failed. Status:', xhr.status);
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('header.html')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
-    };
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('headerContainer').innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error fetching header:', error);
+      });
 
-    xhr.send();
+    document.getElementById('optionSelect').addEventListener('change', function() {
+        var selectedOption = this.value;
+
+        // Make AJAX request to fetch data based on selected option
+        var xhr = new XMLHttpRequest();
+
+        // Define the URL with the 'option' parameter
+        xhr.open('GET', '?option=' + encodeURIComponent(selectedOption), true);
+
+        xhr.onload = function() {
+            if (xhr.status == 200) {
+                // Parse the HTML response and update the table body
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(xhr.responseText, 'text/html');
+                var newTableBody = doc.querySelector('#tableBody').innerHTML;
+                document.querySelector('#tableBody').innerHTML = newTableBody;
+            } else {
+                console.error('Request failed. Status:', xhr.status);
+            }
+        };
+
+        xhr.send();
+    });
 });
 </script>
 
