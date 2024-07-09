@@ -20,7 +20,7 @@ $data = array();
 if ($result->num_rows > 0) {
     // Output data of each row
     while ($row = $result->fetch_assoc()) {
-        $data[] = array('name' => $row['name'], 'content' => $row['content']);
+        $data[] = array('name' => $row['scheme_name'], 'content' => $row['content']);
     }
 }
 
