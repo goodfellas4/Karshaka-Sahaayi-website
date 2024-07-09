@@ -79,10 +79,10 @@
 <h1 style="text-align: center;">Vegetable Prices</h1>
     <?php
 // Database credentials
-$hostname = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'demo';
+$hostname = 'sql311.infinityfree.com';
+$username = 'if0_36395475';
+$password = 'ks142003';
+$database = 'if0_36395475_karshaka_sahaayi';
 
 // Create connection
 $conn = new mysqli($hostname, $username, $password, $database);
