@@ -127,7 +127,6 @@ $conn->close();
     </div>
     
     <div class="container">
-        <!-- Your existing HTML content -->
 
         <!-- Dynamically generated text boxes -->
         <?php
