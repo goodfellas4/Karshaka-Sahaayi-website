@@ -187,10 +187,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('optionSelect').addEventListener('change', function() {
         var selectedOption = this.value;
 
-        // Make AJAX request to fetch data based on selected option
         var xhr = new XMLHttpRequest();
 
-        // Define the URL with the 'option' parameter
+        
         xhr.open('GET', '?option=' + encodeURIComponent(selectedOption), true);
 
         xhr.onload = function() {
