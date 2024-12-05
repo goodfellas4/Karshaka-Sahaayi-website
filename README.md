@@ -1,0 +1,1 @@
+Karshaka Sahaayi is an innovative platform that provides farmers with real-time stock tracking, government scheme details, and market price insights to help them make informed decisions. It empowers farmers by offering essential information to improve productivity and sustainability in agriculture.
