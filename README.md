@@ -90,6 +90,4 @@ This project is licensed under the MIT License.
 🔮 Future Enhancements
 🤖 AI-powered Crop Recommendations
 
-🔔 Automated Alerts for Low Stock & Price Changes
-
-📱 Mobile App Version for Easier Access
+🔔 Automated Alerts for Low Stock & Price Change
